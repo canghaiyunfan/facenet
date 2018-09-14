@@ -1,0 +1,31 @@
+使用简介;https://blog.csdn.net/ygd11/article/details/80724621
+ 
+
+    --logs_base_dir F:\code\facenet\logs --models_base_dir F:\code\facenet\models --gpu_memory_fraction 0
+	--pretrained_model F:\code\facenet\20180402-114759 --data_dir F:\code\facenet\data\lfw\lfw_mtcnnpy_160
+	--lfw_dir F:\code\facenet\data\lfw\lfw_mtcnnpy_160
+	
+	--pretrained_model /data/data_67L46I1z/facenet/20180402-114759 --data_dir /data/data_67L46I1z/facenet/data/lfw/lfw_mtcnnpy_160 --lfw_dir /data/data_67L46I1z/facenet/data/lfw/lfw_mtcnnpy_160
+   
+   
+ export PYTHONPATH=/data/data_67L46I1z/facenet/src
+ 
+ python align_dataset_mtcnn.py /data/data_67L46I1z/facenet/data/lfw/raw /data/data_67L46I1z/facenet/data/lfw/lfw_mtcnnpy_160 --image_size 160 --margin 32 --random_order --gpu_memory_fraction 0.25
+ 
+python train_tripletloss.py --pretrained_model
+/data/data_67L46I1z/facenet/20180402-114759
+--data_dir
+/data/data_67L46I1z/facenet/data/lfw/lfw_mtcnnpy_160
+--lfw_dir
+/data/data_67L46I1z/facenet/data/lfw/lfw_mtcnnpy_160
+--lfw_pairs /data/data_67L46I1z/facenet/data/pairs.txt
+
+python train_tripletloss.py --pretrained_model \
+/data/data_67L46I1z/facenet/20180402-114759 \
+--data_dir \
+/data/data_67L46I1z/facenet/data/lfw/lfw_mtcnnpy_160 \
+--lfw_dir \
+/data/data_67L46I1z/facenet/data/lfw/lfw_mtcnnpy_160 \
+--lfw_pairs /data/data_67L46I1z/facenet/data/pairs.txt 
+
+python src\validate_on_lfw.py /data/data_67L46I1z/facenet/data/lfw/lfw_160 /data/data_67L46I1z/facenet/20180402-114759 --lfw_pairs /data/data_67L46I1z/facenet/data/pairs.txt
