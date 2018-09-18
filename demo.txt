@@ -1,4 +1,6 @@
 使用简介;https://blog.csdn.net/ygd11/article/details/80724621
+      
+	  https://blog.csdn.net/u013044310/article/details/79556099
  
 
     --logs_base_dir F:\code\facenet\logs --models_base_dir F:\code\facenet\models --gpu_memory_fraction 0
@@ -21,12 +23,14 @@ pretrained_model
 /data/data_67L46I1z/facenet/data/lfw/lfw_mtcnnpy_160
 --lfw_pairs /data/data_67L46I1z/facenet/data/pairs.txt
 
-python train_tripletloss.py --pretrained_model \
-/data/data_67L46I1z/facenet/20180402-114759 \
+python train_tripletloss.py --logs_base_dir /data/data_67L46I1z/facenet/logs/facenet \
+--models_base_dir /data/data_67L46I1z/facenet/models/facenet \
+--pretrained_model /data/data_67L46I1z/facenet/20180402-114759 \
+--gpu_memory_fraction 0.9 \
 --data_dir \
 /data/data_67L46I1z/facenet/data/lfw/lfw_mtcnnpy_160 \
 --lfw_dir \
 /data/data_67L46I1z/facenet/data/lfw/lfw_mtcnnpy_160 \
 --lfw_pairs /data/data_67L46I1z/facenet/data/pairs.txt 
 
-python src/validate_on_lfw.py /data/data_67L46I1z/facenet/data/lfw/lfw_160 /data/data_67L46I1z/facenet/20180402-114759 --lfw_pairs /data/data_67L46I1z/facenet/data/pairs.txt
+python src/validate_on_lfw.py /data/data_67L46I1z/facenet/data/lfw/lfw_mtcnnpy_160 /data/data_67L46I1z/facenet/20180402-114759 --lfw_pairs /data/data_67L46I1z/facenet/data/pairs.txt
